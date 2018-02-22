@@ -1,0 +1,32 @@
+<div class='container'>
+  <div class='row'>
+    <h2>Write a review for {{restaurant.name}}</h2>
+  </div>
+  <div class='row'>
+      <ng-container *ngIf="errors!=''">
+          <p style='color:red'>{{errors}}</p>
+        </ng-container>
+      <form class="needs-validation" (submit)="onSubmit()" novalidate>
+          <div class="form-group">
+              <label for="validationTooltip01">Customer:</label>
+              <input type="text" id="validationTooltip01" class="form-control" name='review.customer' [(ngModel)]='review.customer'>     
+          </div>
+          <div class="form-group">
+              <label for="exampleInputPassword1">Description:</label>
+              <textarea class="form-control" name='review.description' [(ngModel)]='review.description'></textarea>
+          </div>
+          <div class="form-group">
+              <label for="exampleFormControlSelect1">Stars</label>
+              <select class="form-control" id="exampleFormControlSelect1" name='review.stars' [(ngModel)]='review.stars' >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          <button type="submit" class="btn btn-primary" >Submit</button> 
+          <button class="btn btn-primary" [routerLink]="['/review',id]">Cancel</button>
+      </form>
+</div>
+</div>

@@ -1,0 +1,29 @@
+<div class='container'>
+    <div class='row'>
+      <button class='btn btn-primary pull-right' [routerLink]="['/new']">Add a restaurant</button> 
+      
+    </div>
+    <div class='row'>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Restaurant</th>
+                <th scope="col">Culsine</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+            <ng-container *ngFor='let restaurant of restaurants;let i =index'>
+              <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{restaurant.name}}</td>
+                <td>{{restaurant.cuisine}}</td>
+                <td><a [routerLink]="['/review',restaurant._id]">Read reviews</a>&nbsp;&nbsp;<a [routerLink]="['/edit',restaurant._id]">Update</a>&nbsp;&nbsp;<a (click)='removeRestaurant(restaurant._id)'>Delete</a></td>
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+    </div>
+</div>
+

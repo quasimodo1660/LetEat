@@ -1,0 +1,30 @@
+<div class='container'>
+    <a [routerLink]="['/home']">Home</a>
+  <div class='row'>
+    <h3>Reviews for {{restaurant.name}}</h3>
+    <button class='btn btn-primary pull-right' [routerLink]="['/write',id]">Add a review</button> 
+  </div>
+
+  <div class='row'>
+      <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Customer</th>
+              <th scope="col">Stars</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+          <ng-container *ngFor='let v of restaurant.review; let i =index'>
+            <tr>
+              <th scope="row">{{i+1}}</th>
+              <td>{{v.customer}}</td>
+              <td>{{v.stars}}</td>
+              <td>{{v.description}}</td>
+            </tr>
+          </ng-container>
+          </tbody>
+        </table>
+  </div>
+</div>
